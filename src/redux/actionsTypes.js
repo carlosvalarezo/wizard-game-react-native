@@ -1,0 +1,2 @@
+export const AGREGAR_POCIMA = "AGREGAR_POCIMA";
+export const QUITAR_POCIMA = "QUITAR_POCIMA";

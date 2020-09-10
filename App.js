@@ -23,44 +23,74 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { Avatar, Text  } from "react-native-elements";
+import { Avatar, Text, ListItem, Rating, Button  } from "react-native-elements";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faFlask } from '@fortawesome/free-solid-svg-icons'
+import NumericInput from 'react-native-numeric-input'
+
+import { connect } from "react-redux";
+import { agregarPocima } from "./src/redux/actions";
+import { useDispatch } from "react-redux";
+
+const listaPociones = [
+  {
+    color: 'red',
+    label: 'Poción roja'
+  },
+  {
+    color: 'blue',
+    label: 'Poción azul'
+  },
+  {
+    color: 'green',
+    label: 'Poción verde'
+  },
+  {
+    color: '#FFEA00',
+    label: 'Poción amarilla'
+  },
+  {
+    color: 'gray',
+    label: 'Poción gris'
+  }
+]
 
 
 const App: () => React$Node = () => {
+  const dispatch = useDispatch();
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          >
+          contentInsetAdjustmentBehavior="automatic">
+          <View>
+              {
+                listaPociones.map((l, i) => (
+                  <ListItem key={i} bottomDivider>
+                    <FontAwesomeIcon icon={faFlask} color={l.color} size="40px" />
+                    <ListItem.Content>
+                      <View style={{flex: 1, flexDirection: 'row'}}>
+                        <View style={{width: '80%', height: 50 }}>
+                          <ListItem.Title style={{color: l.color, fontFamily: 'Arial', marginTop:'7%' }}>{l.label}</ListItem.Title>
+                        </View>
+                        <View style={{width: '20%', height: 50 }}>
+                          <NumericInput type='up-down' rounded totalWidth={50}
+                                        totalHeight={40}
+                                        iconSize={10}
+                                        iconStyle={{ color: l.color }}
+                                        onChange={numero => dispatch(agregarPocima({color: l.color, numero }))} />
+                        </View>
+                      </View>
+                    </ListItem.Content>
+                  </ListItem>
+                ))
+              }
+              <Button
+                title="Calcular ataque"
+              />
+              </View>
 
-            <View flexDirection="row">
-              <FontAwesomeIcon icon={faFlask} color="red" size="40px" />
-              <Text>tPoción roja</Text>
-            </View>
-
-            <View flexDirection="row">
-              <FontAwesomeIcon icon={faFlask} color="blue" size="40px" />
-              <Text>Poción Azul</Text>
-            </View>
-
-            <View flexDirection="row">
-              <FontAwesomeIcon icon={faFlask} color="green" size="40px"  />
-              <Text>Poción verde</Text>
-            </View>
-
-            <View flexDirection="row">
-              <FontAwesomeIcon icon={faFlask} color="#FFEA00" size="40px" />
-              <Text>Poción amarilla</Text>
-            </View>
-
-            <View flexDirection="row">
-              <FontAwesomeIcon icon={faFlask} color="gray" size="40px" />
-              <Text>Poción gris</Text>
-            </View>
 
 
         </ScrollView>
@@ -108,4 +138,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default connect(
+  null,
+  { agregarPocima }
+)(App);
