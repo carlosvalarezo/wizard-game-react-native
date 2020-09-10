@@ -24,13 +24,10 @@ const Pociones = {
               pociones = pocionesRestantes;
               pocionesRestantes -= pociones;
             }
-            console.log("pociones 5", pociones);
             break;
         default: break;
       }
-
     }
-
     return dano;
   }
 }
