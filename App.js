@@ -30,7 +30,9 @@ import NumericInput from 'react-native-numeric-input'
 
 import { connect } from "react-redux";
 import { agregarPocima } from "./src/redux/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { Pociones } from './src/Pociones';
 
 const listaPociones = [
   {
@@ -56,8 +58,11 @@ const listaPociones = [
 ]
 
 
+
 const App: () => React$Node = () => {
   const dispatch = useDispatch();
+  const pociones = useSelector(state => state.pocimas)
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -88,6 +93,7 @@ const App: () => React$Node = () => {
               }
               <Button
                 title="Calcular ataque"
+                onPress={() => console.log(pociones)}
               />
               </View>
 

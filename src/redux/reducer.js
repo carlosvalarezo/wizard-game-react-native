@@ -7,13 +7,10 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case AGREGAR_POCIMA:
+    case QUITAR_POCIMA:
       const { color, numero } = action.payload;
-      console.log("pocimas..", state.pocimas);
       let copyPocimas = state.pocimas;
-      console.log("copyPocimas..", state.pocimas);
       const pocimaActual = copyPocimas.filter(poc => poc.color === color);
-
-      console.log("pocimaActual..", pocimaActual);
       if (pocimaActual.length === 0){
         return {
           ...state,
@@ -21,10 +18,7 @@ export default function(state = initialState, action) {
         };
       }
       const inversePocima = copyPocimas.filter(poc => poc.color !== color);
-      console.log("pocimaActual con valor..", pocimaActual);
       const nuevaPocima = {color: pocimaActual[0].color, numero}
-      console.log("nuevaPocima..", nuevaPocima);
-      console.log("estado con valores;;;;..", state.pocimas);
       if (inversePocima.length === 0){
         return {
           ...state,
@@ -33,10 +27,8 @@ export default function(state = initialState, action) {
       }
       return {
         ...state,
-        pocimas: [inversePocima, nuevaPocima]
+        pocimas: [...inversePocima, nuevaPocima]
       };
-
-
     default:
       return state;
     }

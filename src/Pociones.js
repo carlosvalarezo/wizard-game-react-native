@@ -28,4 +28,5 @@ function CalcularDano(pociones){
   }
   return dano;
 }
+
 module.exports = CalcularDano;
