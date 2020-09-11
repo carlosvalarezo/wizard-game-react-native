@@ -138,7 +138,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(
-  null,
-  { agregarPocima }
-)(App);
+export default App;
