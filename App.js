@@ -32,7 +32,7 @@ import { connect } from "react-redux";
 import { agregarPocima } from "./src/redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Pociones } from './src/Pociones';
+import { CalcularDano } from './src/Pociones';
 
 const listaPociones = [
   {
@@ -56,12 +56,15 @@ const listaPociones = [
     label: 'Poción gris'
   }
 ]
-
-
+const CalcularPocimas = pocimas => {
+  if (pocimas.length === 0) return 0;
+  return pocimas.reduce((total, pocima) => Math.abs(total *1) + Math.abs(pocima.numero), 0)
+}
 
 const App: () => React$Node = () => {
   const dispatch = useDispatch();
   const pociones = useSelector(state => state.pocimas)
+
 
   return (
     <>
@@ -93,7 +96,10 @@ const App: () => React$Node = () => {
               }
               <Button
                 title="Calcular ataque"
-                onPress={() => console.log(pociones)}
+                onPress={() => {
+                  const dano = CalcularDano(CalcularPocimas(pociones));
+                  console.log("dano..", dano)
+                  }}
               />
               </View>
 

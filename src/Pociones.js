@@ -1,4 +1,4 @@
-function CalcularDano(pociones){
+export function CalcularDano(pociones){
   let dano = 0;
   let pocionesRestantes = 0;
 
@@ -28,5 +28,3 @@ function CalcularDano(pociones){
   }
   return dano;
 }
-
-module.exports = CalcularDano;

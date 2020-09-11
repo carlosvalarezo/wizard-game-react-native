@@ -17,9 +17,9 @@ export default function(state = initialState, action) {
           pocimas: [...state.pocimas, { color, numero }]
         };
       }
-      const inversePocima = copyPocimas.filter(poc => poc.color !== color);
+      const otrasPocimas = copyPocimas.filter(poc => poc.color !== color);
       const nuevaPocima = {color: pocimaActual[0].color, numero}
-      if (inversePocima.length === 0){
+      if (otrasPocimas.length === 0){
         return {
           ...state,
           pocimas: [nuevaPocima]
@@ -27,7 +27,7 @@ export default function(state = initialState, action) {
       }
       return {
         ...state,
-        pocimas: [...inversePocima, nuevaPocima]
+        pocimas: [...otrasPocimas, nuevaPocima]
       };
     default:
       return state;
