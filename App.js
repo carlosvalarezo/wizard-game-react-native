@@ -76,7 +76,7 @@ const App: () => React$Node = () => {
               {
                 listaPociones.map((l, i) => (
                   <ListItem key={i} bottomDivider>
-                    <FontAwesomeIcon icon={faFlask} color={l.color} size="40px" />
+                    <FontAwesomeIcon icon={faFlask} color={l.color} size={40} />
                     <ListItem.Content>
                       <View style={{flex: 1, flexDirection: 'row'}}>
                         <View style={{width: '80%', height: 50 }}>
@@ -97,6 +97,7 @@ const App: () => React$Node = () => {
               <Button
                 title="Calcular ataque"
                 onPress={() => {
+                  console.log("pociones..", pociones)
                   const dano = CalcularDano(CalcularPocimas(pociones));
                   console.log("dano..", dano)
                   }}
