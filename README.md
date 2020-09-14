@@ -5,15 +5,14 @@
 Format: ![Alt Text](ios-android)
 
 ## Ejecución en android
-El siguiente comando ejecutará:
+El comando ```sh inicio.sh``` ejecutará:
 
 - [x] instalación de dependencias
 - [x] ejecución de pruebas
 - [x] inicio de metro server
 - [x] inicio en un android emulator
 
-```sh inicio.sh
-```
+
 
 ## Ejecución en iOS
 1. Abrir la carpeta iOS del proyecto
