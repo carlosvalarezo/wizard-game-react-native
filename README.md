@@ -7,10 +7,10 @@ Format: ![Alt Text](ios-android)
 ## Ejecución en android
 El siguiente comando ejecutará:
 
-[x] instalación de dependencias
-[x] ejecución de pruebas
-[x] inicio de metro server
-[x] inicio en un android emulator
+- [x] instalación de dependencias
+- [x] ejecución de pruebas
+- [x] inicio de metro server
+- [x] inicio en un android emulator
 
 ```sh inicio.sh
 ```
