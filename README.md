@@ -25,3 +25,9 @@ El siguiente comando ejecutará:
 
 Posibles errores
 1. Si aparece ```no metro bundle```, por favor asegurarse de haber ejecutado ya sea ```sh inicio.sh``` o ```npm start``` y que una ventana de la terminal esté ejecutando un servidor.
+
+## Stack
+- React
+- React Native
+- redux con functional hooks
+- jest for testing
