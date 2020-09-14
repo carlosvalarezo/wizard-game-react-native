@@ -1,30 +1,52 @@
 export function CalcularDano(pociones){
-  let dano = 0;
-  let pocionesRestantes = 0;
 
-  while (pociones > 0){
-    if (pociones > 5){
-      pocionesRestantes = Math.abs(pociones - 5);
-      pociones = 5;
+  let ataques = []
+  if (pociones.length === 0) return 0;
+
+    let pocionesTotales = pociones.reduce((total, pocion) => total + pocion.numero, 0);
+    let colores = pociones.length;
+    let pocimasGastadas = 0;
+    let pocionesRestantes = pociones.reduce((total, pocion) => total + pocion.numero, 0);
+    let dano = 0;
+
+    while(pocimasGastadas !== pocionesTotales){
+      pociones = pociones.map(pocion => {
+        const { color } = pocion;
+        let { numero } = pocion;
+
+        if(numero !== 0){
+          pocimasGastadas++;
+          numero -= 1;
+          return {color, numero};
+        }
+        if (numero === 0){
+          colores--;
+        }
+        return {color, numero};
+      });
+      pocionesRestantes = pociones.reduce((total, pocion) => total + pocion.numero, 0);
+      if(colores === 1 ){
+          ataques.push({dano: 3})
+      }
+      if(colores === 2 ){
+          ataques.push({dano: 3});
+          ataques.push({dano: 3});
+      }
+      if(colores === 3 ){
+          ataques.push({dano: 10});
+      }
+      if(colores === 4 ){
+          ataques.push({dano: 20});
+      }
+      if(colores === 5 ){
+          ataques.push({dano: 25});
+      }
+
+
     }
-    switch(pociones){
-      case 1:
-        dano += 3;
-        pociones -= 1;
-      break;
-      case 2: dano += 3; pociones -= 1; break;
-      case 3: dano += 10; pociones -= 3; break;
-      case 4: dano += 20; pociones -= 4; break;
-      case 5:
-          dano += 25;
-          pociones -= 5;
-          if (pocionesRestantes > 0) {
-            pociones = pocionesRestantes;
-            pocionesRestantes -= pociones;
-          }
-          break;
-      default: break;
-    }
-  }
-  return dano;
+  return Math.round(ataques.reduce((total, ataque) => total + ataque.dano, 0));
+
+
+
+
 }

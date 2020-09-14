@@ -98,7 +98,7 @@ const App: () => React$Node = () => {
                 title="Calcular ataque"
                 onPress={() => {
                   console.log("pociones..", pociones)
-                  const dano = CalcularDano(CalcularPocimas(pociones));
+                  const dano = CalcularDano(pociones);
                   console.log("dano..", dano)
                   }}
               />
