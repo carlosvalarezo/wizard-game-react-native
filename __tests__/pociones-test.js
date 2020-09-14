@@ -44,6 +44,13 @@ test('retorna 9% dada 3 pociones 2 blue y 1 red ', () => {
   expect(dano).toBe(9)
 })
 
+test('retorna 10% dada 3 pociones 1 blue 1 red 1 green ', () => {
+  const pociones = [{color:'blue', numero:1}, {color:'red', numero:1}, {color:'green', numero:1}]
+
+  dano = Pociones.CalcularDano(pociones);
+  expect(dano).toBe(10)
+})
+
 test('retorna 12% dada 4 pociones 2 blue y 1 red ', () => {
   const pociones = [{color:'blue', numero:2}, {color:'red', numero:2}]
 

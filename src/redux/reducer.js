@@ -1,7 +1,8 @@
-import { AGREGAR_POCIMA, QUITAR_POCIMA } from "./actionsTypes";
+import { AGREGAR_POCIMA, QUITAR_POCIMA, CALCULAR_ATAQUE } from "./actionsTypes";
 
 const initialState = {
-  pocimas: []
+  pocimas: [],
+  ataque: 0,
 };
 
 export default function(state = initialState, action) {
@@ -29,7 +30,14 @@ export default function(state = initialState, action) {
         ...state,
         pocimas: [...otrasPocimas]
       };
+    case CALCULAR_ATAQUE:
+    const {ataque} = action.payload;
+      return {
+        ...state,
+        ataque
+      };
     default:
       return state;
     }
+
 }

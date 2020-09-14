@@ -1,4 +1,4 @@
-import { AGREGAR_POCIMA, QUITAR_POCIMA } from "./actionsTypes";
+import { AGREGAR_POCIMA, QUITAR_POCIMA, CALCULAR_ATAQUE } from "./actionsTypes";
 
 export const agregarPocima = pocima => ({
   type: AGREGAR_POCIMA,
@@ -13,5 +13,12 @@ export const quitarPocima = pocima => ({
   payload: {
     color: pocima.color,
     numero: pocima.numero
+  }
+});
+
+export const calcularAtaque = ataque => ({
+  type: CALCULAR_ATAQUE,
+  payload: {
+    ataque
   }
 });

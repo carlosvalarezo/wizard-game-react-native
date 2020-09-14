@@ -29,7 +29,7 @@ import { faFlask } from '@fortawesome/free-solid-svg-icons'
 import NumericInput from 'react-native-numeric-input'
 
 import { connect } from "react-redux";
-import { agregarPocima } from "./src/redux/actions";
+import { agregarPocima, calcularAtaque } from "./src/redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 import { CalcularDano } from './src/Pociones';
@@ -56,15 +56,11 @@ const listaPociones = [
     label: 'Poción gris'
   }
 ]
-const CalcularPocimas = pocimas => {
-  if (pocimas.length === 0) return 0;
-  return pocimas.reduce((total, pocima) => Math.abs(total *1) + Math.abs(pocima.numero), 0)
-}
 
 const App: () => React$Node = () => {
   const dispatch = useDispatch();
   const pociones = useSelector(state => state.pocimas)
-
+  const ataque = useSelector(state => state.ataque)
 
   return (
     <>
@@ -96,12 +92,9 @@ const App: () => React$Node = () => {
               }
               <Button
                 title="Calcular ataque"
-                onPress={() => {
-                  console.log("pociones..", pociones)
-                  const dano = CalcularDano(pociones);
-                  console.log("dano..", dano)
-                  }}
+                onPress={() => dispatch(calcularAtaque(CalcularDano(pociones)))}
               />
+              <Text>El ataque es de: {ataque} %</Text>
               </View>
 
 

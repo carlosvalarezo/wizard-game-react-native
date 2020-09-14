@@ -1,13 +1,11 @@
 export function CalcularDano(pociones){
 
-  let ataques = []
-  if (pociones.length === 0) return 0;
+    let ataques = []
+    if (pociones.length === 0) return 0;
 
     let pocionesTotales = pociones.reduce((total, pocion) => total + pocion.numero, 0);
     let colores = pociones.length;
     let pocimasGastadas = 0;
-    let pocionesRestantes = pociones.reduce((total, pocion) => total + pocion.numero, 0);
-    let dano = 0;
 
     while(pocimasGastadas !== pocionesTotales){
       pociones = pociones.map(pocion => {
@@ -24,7 +22,6 @@ export function CalcularDano(pociones){
         }
         return {color, numero};
       });
-      pocionesRestantes = pociones.reduce((total, pocion) => total + pocion.numero, 0);
       if(colores === 1 ){
           ataques.push({dano: 3})
       }
@@ -41,12 +38,6 @@ export function CalcularDano(pociones){
       if(colores === 5 ){
           ataques.push({dano: 25});
       }
-
-
-    }
-  return Math.round(ataques.reduce((total, ataque) => total + ataque.dano, 0));
-
-
-
-
+   }
+   return Math.round(ataques.reduce((total, ataque) => total + ataque.dano, 0));
 }
