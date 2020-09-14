@@ -25,5 +25,3 @@ El siguiente comando ejecutará:
 
 Posibles errores
 1. Si aparece ```no metro bundle```, por favor asegurarse de haber ejecutado ya sea ```sh inicio.sh``` o ```npm start``` y que una ventana de la terminal esté ejecutando un servidor.
-![error metro bundle](/images/no-bundle.png)
-Format: ![Alt Text](no metro bundle)
