@@ -1,32 +1,35 @@
-# wizard
+# wizard-game-react-native
 
-- Se ejecuta en iOS & android
+This exercise shows the an application of React Native in iOS & Android 
+
+- Runs iOS & android
 ![ios and android](/images/ios-android.png)
 Format: ![Alt Text](ios-android)
 
-## Ejecución en android
-El comando ```sh inicio.sh``` ejecutará:
+## run in android
+```sh inicio.sh``` executes:
 
-- [x] instalación de dependencias
-- [x] ejecución de pruebas
-- [x] inicio de metro server
-- [x] inicio en un android emulator
+- [x] dependency installation
+- [x] test exectution
+- [x] starts metro server
+- [x] starts android emulator
 
 
 
-## Ejecución en iOS
-1. Abrir la carpeta iOS del proyecto
-2. Ejecutar: ```pod install```
-3. Abrir Xcode
-4. Abrir el proyecto en la carpeta iOS
-5. Escoger un emulador
-6. Ejecutar
+## run in iOS
+1. Open the iOS folder
+2. ```pod install```
+3. open Xcode
+4. Open the project at iOS folder
+5. Choose a simulator
+6. Run
 
-Posibles errores
-1. Si aparece ```no metro bundle```, por favor asegurarse de haber ejecutado ya sea ```sh inicio.sh``` o ```npm start``` y que una ventana de la terminal esté ejecutando un servidor.
+Likely errors
+1. ```no metro bundle```, please make sure ```sh inicio.sh``` and ```npm start``` were already executed. Also, please check there is no terminal windows terminal running metro server.
 
 ## Stack
+
 - React
 - React Native
-- redux con functional hooks
-- jest for testing
+- Redux with functional hooks
+- Jest for testing
